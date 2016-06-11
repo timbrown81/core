@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "lint": "tslint \"src/**/*.ts\" -e \"**/__test__/**\"",
-    "build": "rimraf dist && tsc",
+    "test-ava": "rimraf spec-out && tsc && ava spec-out/**/bundle.spec.js",
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
     "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
     "test-spec": "ts-node node_modules/blue-tape/bin/blue-tape.js \"src/**/*.spec.ts\" | tap-diff",
     "test-cov": "ts-node node_modules/istanbul/lib/cli.js cover -e .ts --print none -x \"*.d.ts\" -x \"*.spec.ts\" node_modules/blue-tape/bin/blue-tape.js -- \"src/**/*.spec.ts\" | tap-diff",
@@ -74,6 +75,10 @@
     "zip-object": "^0.1.0"
   },
   "devDependencies": {
+    "ava": "^0.15.2",
+    "babel": "^6.5.2",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
     "blue-tape": "^0.2.0",
     "bluebird": "^3.3.4",
     "dependency-check": "^2.5.1",
@@ -84,5 +89,8 @@
     "ts-node": "^0.8.0",
     "tslint": "^3.10.2",
     "tslint-config-standard": "^1.0.0"
+  },
+  "ava": {
+    "babel": "inherit"
   }
 }

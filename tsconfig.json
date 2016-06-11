@@ -1,20 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "outDir": "dist/",
+    "target": "es2015",
+    "outDir": "spec-out/",
     "module": "commonjs",
     "moduleResolution": "node",
-    "noLib": true,
     "declaration": true,
-    "noImplicitAny": true,
     "removeComments": true,
     "sourceMap": true,
     "newLine": "LF"
   },
-  "files": [
-    "src/typings.ts",
-    "typings/index.d.ts",
-    "custom_typings/node.d.ts",
-    "node_modules/typescript/lib/lib.core.d.ts"
+  "exclude": [
+    "node_modules",
+    "custom_typings",
+    "coverage",
+    "spec-out",
+    "dist",
+    "scripts",
+    "src/__test__",
+    "src/lib/__test__"
   ]
 }
