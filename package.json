@@ -92,6 +92,15 @@
     "tslint-config-standard": "^1.0.0"
   },
   "ava": {
-    "babel": "inherit"
+    "babel": {
+      "presets": [
+        "es2015",
+        "stage-2"
+      ],
+      "plugins": [
+        "transform-es2015-parameters",
+        "transform-es2015-destructuring"
+      ]
+    }
   }
 }
